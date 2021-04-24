@@ -13,7 +13,7 @@ using Random = UnityEngine.Random;
         private void Awake()
         {
             _heightFlay = Random.Range(1f, 6f);
-            //_material = GetComponent<Renderer>().material;
+            _material = GetComponent<Renderer>().material;
         }
 
         protected override void Interaction()
@@ -28,7 +28,7 @@ using Random = UnityEngine.Random;
         public void Flicker()
         {
             _material.color = new Color(_material.color.r, _material.color.g, 
-                _material.color.b, Mathf.PingPong(Time.time, 1.0f));
+                _material.color.b, Mathf.PingPong(Time.time, 10.0f));
         }
         
     }
