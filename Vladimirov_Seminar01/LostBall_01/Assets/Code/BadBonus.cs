@@ -10,6 +10,16 @@ public sealed class BadBonus : InteractiveObject, IFlay, IRotation
     private float _speedRotation;
     public Transform GameObject_BadBonus;
 
+    //public delegate void CaughtPlayerChange(object value);
+    //public event CaughtPlayerChange CaughtPlayer;
+
+    private event EventHandler<Color> _caughtPlayer;
+    public event EventHandler<Color> CaughtPlayer
+    {
+        add { _caughtPlayer += value; }
+        remove { _caughtPlayer -= value; }
+    }
+
     private void Awake()
     {
         _heightFlay = Random.Range(1.0f, 6.0f);
@@ -18,7 +28,7 @@ public sealed class BadBonus : InteractiveObject, IFlay, IRotation
 
     protected override void Interaction()
     {
-        //
+        _caughtPlayer?.Invoke(this, _color);
     }
 
     public void Flay()

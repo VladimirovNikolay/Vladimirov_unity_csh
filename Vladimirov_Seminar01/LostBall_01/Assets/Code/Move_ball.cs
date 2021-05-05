@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MovePlayer
-{
-
     public class Move_ball : MonoBehaviour
     {
         //скорость персонажа
@@ -41,4 +38,3 @@ namespace MovePlayer
             controller.Move(moveDir * Time.deltaTime);
         }
     }
-}
